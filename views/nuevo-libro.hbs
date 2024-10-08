@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Nuevo Libro</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Nuevo Libro</h1>
+        <form action="/libros/nuevo" method="POST">
+            <label for="identificacion">Identificación:</label>
+            <input type="number" name="identificacion" required>
+
+            <label for="titulo">Título:</label>
+            <input type="text" name="titulo" required>
+
+            <label for="año_publicacion">Año de Publicación:</label>
+            <input type="number" name="año_publicacion" required>
+
+            <label for="genero">Género:</label>
+            <select name="genero" required>
+                <option value="">Seleccionar género</option>
+                <option value="ficcion">Ficción</option>
+                <option value="no_ficcion">No Ficción</option>
+                <option value="fantasia">Fantasía</option>
+                <option value="misterio">Misterio</option>
+                <option value="biografia">Biografía</option>
+                <option value="historia">Historia</option>
+                <option value="ciencia">Ciencia</option>
+                <option value="infantil">Infantil</option>
+            </select>
+
+            <label for="id_autor">Autor:</label>
+            <select name="id_autor" required>
+                <option value="">Seleccionar autor</option>
+                {{#each autores}}
+                    <option value="{{this._id}}">{{this.nombre}}</option>
+                {{/each}}
+            </select>
+
+            <button type="submit">Guardar libro</button>
+        </form>
+          <div class="botones-navegacion">
+            <button class="btn" onclick="window.history.back()">Volver</button>
+            <a href="/libros/lista" class="btn">Ver Todos los Libros</a> 
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+</html>
+
+
+
+
+

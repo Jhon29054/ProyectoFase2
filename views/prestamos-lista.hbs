@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Préstamos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Préstamos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>ID Libro</th>
+                    <th>ID Miembro</th>
+                    <th>Fecha Préstamo</th>
+                    <th>Fecha Retorno</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each prestamos}}
+                <tr>
+                    <td>{{this.identificacion}}</td>
+                    <td>{{this.id_libro}}</td>
+                    <td>{{this.id_miembro}}</td>
+                    <td>{{this.fecha_prestamo}}</td>
+                    <td>{{this.fecha_retorno}}</td>
+                    <td>
+                        <form action="/prestamos/editar/{{this._id}}" method="get">
+                            <button type="submit">Editar</button>
+                        </form>
+                        <form action="/prestamos/eliminar/{{this._id}}" method="post">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <a href="/prestamos/nuevo" class="button">Añadir Nuevo Préstamo</a>
+                    <a href="/" class="button">Ir al Inicio</a>
+    </div>
+</body>
+</html>

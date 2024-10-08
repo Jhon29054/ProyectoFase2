@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+    <div class="container">
+<h1>Editar Miembro</h1>
+<form action="/miembros/editar/{{miembro._id}}" method="POST">
+  <label for="identificacion">Identificación:</label>
+  <input type="number" name="identificacion" value="{{miembro.identificacion}}" required>
+
+  <label for="nombre">Nombre:</label>
+  <input type="text" name="nombre" value="{{miembro.nombre}}" required>
+
+  <label for="fecha_afiliacion">Fecha de Afiliación:</label>
+  <input type="date" name="fecha_afiliacion" value="{{miembro.fecha_afiliacion}}" required>
+
+  <label for="correo_electronico">Correo Electrónico:</label>
+  <input type="email" name="correo_electronico" value="{{miembro.correo_electronico}}" required>
+
+  <button type="submit">Guardar Cambios</button>
+</form>
+            <a href="/" class="button">Ir al Inicio</a>

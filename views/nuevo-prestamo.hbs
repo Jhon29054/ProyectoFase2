@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Nuevo Préstamo</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Nuevo Préstamo</h1>
+        <form action="/prestamos/nuevo" method="POST">
+            <label for="identificacion">Identificación del Préstamo:</label>
+            <input type="number" name="identificacion" required>
+
+            <label for="id_libro">Seleccionar Libro:</label>
+            <select name="id_libro" required>
+                {{#each libros}}
+                    <option value="{{this._id}}">{{this.titulo}}</option>
+                {{/each}}
+            </select>
+
+            <label for="id_miembro">Seleccionar Miembro:</label>
+            <select name="id_miembro" required>
+                {{#each miembros}}
+                    <option value="{{this._id}}">{{this.nombre}}</option>
+                {{/each}}
+            </select>
+
+            <label for="fecha_prestamo">Fecha del Préstamo:</label>
+            <input type="date" name="fecha_prestamo" required>
+
+            <label for="fecha_retorno">Fecha de Retorno:</label>
+            <input type="date" name="fecha_retorno" required>
+
+            <button type="submit">Guardar Préstamo</button>
+        </form>
+
+        <div class="botones-navegacion">
+            <button class="btn" onclick="window.history.back()">Volver</button>
+            <a href="/prestamos/lista" class="btn">Ver Todos los Préstamos</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
